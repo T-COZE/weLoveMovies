@@ -10,12 +10,13 @@ app.use(cors());
 
 //Routers
 app.use(express.json());
+
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
-// Not found handler
-app.use((req, res, next) => {
+//Not found handler
+app.use((req, _res, next) => {
   next({ status: 404, message: `Not found: ${req.originalUrl}` });
 });
 

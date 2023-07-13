@@ -33,6 +33,7 @@ const list = async (req, res, next) => {
   res.json({ data: await moviesService.list() });
 };
 
+
 module.exports = {
   list: asyncErrorBoundary(list),
   read: [asyncErrorBoundary(movieExists), asyncErrorBoundary(read)],
